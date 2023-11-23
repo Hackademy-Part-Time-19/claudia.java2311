@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java2311</title>
+</head>
+
+<body>
+    <script>
+
+        // Array 
+        let listaProdotti = [];
+
+        // Funzione per aggiungere un elemento alla lista
+        function aggiungiProdotto() {
+            let prodotto = prompt("Inserisci un prodotto da aggiungere alla lista:");
+            listaProdotti.push(prodotto);
+            alert("Prodotto aggiunto alla lista.");
+        }
+
+        // Funzione per eliminare un elemento dalla lista
+        function eliminaProdotto() {
+            let prodotto = prompt("Inserisci il prodotto da eliminare dalla lista:");
+            let index = listaProdotti.indexOf(prodotto);
+            if (index !== -1) {
+                listaProdotti.splice(index, 1);
+                alert("Prodotto eliminato dalla lista.");
+            } else {
+                alert("Il prodotto non esiste nella lista.");
+            }
+        }
+
+        // Funzione per ordinare la lista in ordine alfabetico
+        function ordinaLista() {
+            listaProdotti.sort(function (a, b) {
+                return a.toLowerCase().localeCompare(b.toLowerCase());
+            });
+            alert(listaProdotti);
+
+        }
+
+        // Funzione per modificare un elemento della lista
+        function modificaProdotto() {
+            let prodotto = prompt("Inserisci il prodotto da modificare:");
+            let index = listaProdotti.indexOf(prodotto);
+            if (index !== -1) {
+                let nuovoProdotto = prompt("Inserisci il nuovo valore per il prodotto:");
+                listaProdotti[index] = nuovoProdotto;
+                alert("Prodotto modificato.");
+            } else {
+                alert("Il prodotto non esiste nella lista.");
+            }
+        }
+
+        // Funzione per eliminare l'intera lista
+        function eliminaLista() {
+            listaProdotti = [];
+            alert("Lista eliminata.");
+        }
+
+        // Funzione per visualizzare la lista
+        function visualizzaLista() {
+            let index = 0;
+            if (index < listaProdotti.length) {
+                alert(listaProdotti)
+            }
+            else { alert("Nessun prodotto nella lista") }
+        }
+
+        // Funzione per gestire l'interfaccia di comando
+        function gestisciInterfaccia() {
+            let scelta = prompt("Clicca 1 per aggiungere un elemento, clicca 2 per eliminare un elemento, clicca 3 per ordinare la lista, clicca 4 per modificare un elemento, clicca 5 per eliminare l'intera lista, clicca 6 per visualizzare la lista, clicca 0 per chiudere.");
+
+            switch (scelta) {
+                case "0":
+                    alert("Grazie e arrivederci");
+                    break;
+                case "1":
+                    aggiungiProdotto();
+                    break;
+                case "2":
+                    eliminaProdotto();
+                    break;
+                case "3":
+                    ordinaLista();
+                    break;
+                case "4":
+                    modificaProdotto();
+                    break;
+                case "5":
+                    eliminaLista();
+                    break;
+                case "6":
+                    visualizzaLista();
+                    break;
+                default:
+                    alert("Scelta non valida, riprova.");
+                    break;
+            }
+
+            if (scelta !== "0") {
+                gestisciInterfaccia();
+            }
+        }
+
+        // Avvia il programma
+        gestisciInterfaccia();</script>
+
+
+
+    <script>
+        //Filtrare Numeri Pari da un Array
+
+        let listaNumeri = [1, 2, 3, 4, 5, 6]
+        listaNumeriPari = listaNumeri.filter(numero => numero % 2 == 0)
+
+        console.log([listaNumeriPari]);
+
+    </script>
+
+    <script>
+        //Unisci Array e Filtra per Lunghezza
+
+        let lista1 = ["latte", "pane", "sale", "vino", "mele"];
+        let lista2 = ["Giorgio", "Laura", "Valeria", "Lori", "Dani"];
+
+        function filtraPerLunghezza(lista1, lista2, lunghezzaMinima) {
+
+            let listaConcatenata = lista1.concat(lista2);
+
+            let listaFiltrata = listaConcatenata.filter(parola => parola.length >= lunghezzaMinima);
+
+            console.log(listaFiltrata);
+        }
+
+        filtraPerLunghezza([lista1, lista2, 5]);
+    </script>
+
+</body>
+
+</html>
